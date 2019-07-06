@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "395262386537",
+    "firebase_url": "https://twist-a0554.firebaseio.com",
+    "project_id": "twist-a0554",
+    "storage_bucket": "twist-a0554.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:395262386537:android:4a77ea315b5f97a2",
+        "android_client_info": {
+          "package_name": "com.reyzeny.twist"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "395262386537-0oou8509p34qrjdjb3j3mdgnd5chd7hg.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.reyzeny.twist",
+            "certificate_hash": "c33ba902a958013cb02a06e02a60168ab57f4713"
+          }
+        },
+        {
+          "client_id": "395262386537-sfr0bvd7qs48f89eln67cd2r19dkhu7t.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBeTcGV16fzv1XJ4WWZfXR6J7BhcN6Qg_Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "395262386537-sfr0bvd7qs48f89eln67cd2r19dkhu7t.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

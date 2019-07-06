@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_inbox"
+        android:icon="@drawable/ic_mail"
+        android:title="@string/inbox" />
+
+
+
+    <item
+        android:id="@+id/navigation_sent"
+        android:icon="@drawable/ic_sent"
+        android:title="@string/sent" />
+
+</menu>

@@ -1,0 +1,34 @@
+<resources>
+    <string name="app_name">Twist</string>
+    <string name="title_activity">Twist App</string>
+    <string name="login">Login</string>
+    <string name="register">Register</string>
+    <string name="authentication">Authentication</string>
+    <string name="verify">Verify</string>
+    <string name="phone_number">Phone number(e.g +2348765432)</string>
+    <string name="enter_code">Enter the code sent to your phone number</string>
+    <string name="invalid_phone_number">Valid phone number is required</string>
+    <string name="invalid_code">Invalid Code</string>
+    <string name="valid_code_required">Valid code is required</string>
+    <string name="resend_code">RESEND CODE</string>
+    <string name="need_auth_to_access">You need to be authenticated to access this app</string>
+    <string name="wrong_number">Wrong number?</string>
+    <string name="title_activity_testing">Testing</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="inbox">Inbox</string>
+    <string name="to">To:</string>
+    <string name="enter_message">Enter Message</string>
+    <string name="send_message">Send Message</string>
+    <string name="sent">Sent</string>
+    <string name="key_retrieval_password_description">Key retrieval password is required to reveal the key for any message to be decrypted</string>
+    <string name="save">Save</string>
+    <string name="key_retrieval_password">Key Retrieval Password</string>
+    <string name="last_name">Last Name</string>
+    <string name="first_name">First Name</string>
+    <string name="username">Username</string>
+    <string name="profile">Profile</string>
+    <string name="no_message_sent">No message sent</string>
+    <string name="no_inbox_message">No inbox message</string>
+</resources>
