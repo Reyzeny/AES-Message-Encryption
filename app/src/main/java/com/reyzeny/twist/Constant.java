@@ -18,4 +18,5 @@ public class Constant {
     public static final String KEY_RETRIEVAL_PASSWORD = "key_retrieval_password";
     public static final String SENT = "sent";
     public static final String INBOX = "inbox";
+    public static final String DOCUMENT_ID ="document_id";
 }

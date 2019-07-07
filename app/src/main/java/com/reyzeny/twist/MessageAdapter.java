@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
@@ -16,7 +17,11 @@ import androidx.fragment.app.FragmentActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.amulyakhare.textdrawable.TextDrawable;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.List;
 
@@ -52,6 +57,7 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.ViewHold
             public void onClick(View v) {
                 DocumentSnapshot documentSnapshot = documents.get(position);
                 Intent intent = new Intent(v.getContext(), MessageDetails.class);
+                intent.putExtra(Constant.DOCUMENT_ID, documentSnapshot.getId());
                 intent.putExtra(Constant.SENDER_USERNAME, displayName);
                 intent.putExtra(Constant.MESSAGE, documentSnapshot.getString(Constant.MESSAGE));
                 intent.putExtra(Constant.MESSAGE_KEY, documentSnapshot.getString(Constant.MESSAGE_KEY));
@@ -65,6 +71,8 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.ViewHold
     public int getItemCount() {
         return documents==null || documents.isEmpty() ? 0 : documents.size();
     }
+
+
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         private TextView textContactName, textMessage;

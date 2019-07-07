@@ -9,6 +9,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.DividerItemDecoration;
+import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -30,7 +31,7 @@ public class InboxFragment extends androidx.fragment.app.Fragment {
     View view;
     RecyclerView mRecyclerView;
     TextView tvNoInboxMessage;
-    RecyclerView.Adapter adapter;
+    MessageAdapter adapter;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -38,6 +39,7 @@ public class InboxFragment extends androidx.fragment.app.Fragment {
         mRecyclerView = view.findViewById(R.id.inbox_recyclerview);
         tvNoInboxMessage = view.findViewById(R.id.tvNoInboxMessage);
         tvNoInboxMessage.setVisibility(View.VISIBLE);
+
         LoadInboxMessages();
         return view;
     }

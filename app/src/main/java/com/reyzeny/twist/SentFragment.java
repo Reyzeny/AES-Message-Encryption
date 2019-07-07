@@ -9,6 +9,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.DividerItemDecoration;
+import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -24,7 +25,7 @@ public class SentFragment extends androidx.fragment.app.Fragment {
     View view;
     RecyclerView mRecyclerView;
     TextView tvNoMessageSent;
-    RecyclerView.Adapter adapter;
+    MessageAdapter adapter;
 
     @Nullable
     @Override

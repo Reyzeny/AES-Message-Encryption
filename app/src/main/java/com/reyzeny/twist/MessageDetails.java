@@ -4,11 +4,13 @@ import android.content.DialogInterface;
 import android.os.Bundle;
 import android.text.InputType;
 import android.view.LayoutInflater;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -16,6 +18,8 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -25,11 +29,12 @@ public class MessageDetails extends AppCompatActivity {
     private EditText edtKey;
     private RelativeLayout decryptionLayout, originalMessageLayout;
 
-    private String SenderUsername, Message, MessageKey;
+    private String documentID, SenderUsername, Message, MessageKey;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.full_message_display);
+        documentID = getIntent().getStringExtra(Constant.DOCUMENT_ID);
         SenderUsername = getIntent().getStringExtra(Constant.SENDER_USERNAME);
         Message = getIntent().getStringExtra(Constant.MESSAGE);
         MessageKey = getIntent().getStringExtra(Constant.MESSAGE_KEY);
@@ -142,10 +147,59 @@ public class MessageDetails extends AppCompatActivity {
     }
 
     @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
+    }
+
+    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId()==android.R.id.home) {
             finish();
+            return true;
         }
-        return true;
+        if (item.getItemId()==R.id.action_delete) {
+            showDeleteConfirmationDialog();
+            return true;
+        }
+        return false;
+    }
+
+    private void showDeleteConfirmationDialog() {
+        new AlertDialog.Builder(this)
+                .setTitle("Delete Message")
+                .setMessage("Are you sure you want to delete this message")
+                .setNegativeButton("NO", null)
+                .setPositiveButton("YES", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        deleteItem();
+                    }
+                })
+                .show();
+    }
+
+    public void deleteItem() {
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+        db.collection(Constant.FIREBASE_MESSAGE_COLLECTION).document(documentID)
+                .delete()
+                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        finish();
+                    }
+                })
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+            @Override
+            public void onSuccess(Void aVoid) {
+                Toast.makeText(MessageDetails.this, "Message deleted", Toast.LENGTH_SHORT).show();
+                finish();
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Toast.makeText(MessageDetails.this, "Error deleting message " + e.getLocalizedMessage(), Toast.LENGTH_LONG).show();
+            }
+        });
     }
 }
