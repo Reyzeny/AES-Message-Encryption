@@ -39,11 +39,6 @@ public class SentFragment extends androidx.fragment.app.Fragment {
         return view;
     }
 
-    @Override
-    public void onResume() {
-        super.onResume();
-
-    }
     private void LoadSentMessages() {
 
         FirebaseFirestore db = FirebaseFirestore.getInstance();

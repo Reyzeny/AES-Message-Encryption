@@ -44,12 +44,6 @@ public class InboxFragment extends androidx.fragment.app.Fragment {
         return view;
     }
 
-    @Override
-    public void onResume() {
-        super.onResume();
-
-    }
-
     private void LoadInboxMessages() {
         FirebaseFirestore db = FirebaseFirestore.getInstance();
         System.out.println("recipeient user name is " + LocalData.getUserName(this.getContext()));
